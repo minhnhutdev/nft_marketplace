@@ -1,0 +1,1 @@
+/Users/trietnguyen/Documents/Blockchain\ Development/NEAR_DEC/minhnhut99_project/nft_marketplace/contract/target/wasm32-unknown-unknown/release/greeter.wasm: /Users/trietnguyen/Documents/Blockchain\ Development/NEAR_DEC/minhnhut99_project/nft_marketplace/contract/src/lib.rs
