@@ -32,6 +32,7 @@ cptarget/wasm32-unknown-unknown/release/*.wasm ./res/
 near dev-deploy --wasmFile res/marketplace.wasm 
 source neardev/dev-account.env
 echo $ID
+near call $ID new '{"owner": "'$ID'"}' --accountId $ID
 ```
 
 ### 2 Mint NFT token
@@ -41,14 +42,14 @@ near call $CONTRACT_NAME nft_mint '{"token_id": "0", "receiver_id": "'$CONTRACT_
 
 ### 3 NFT owner call add_sale fn
 ```sh
-near call $ID add_sale '{"token_contract_id": "'$CONTRACT_NAME'", "token_id": "0", "price": "1_000_000_000_000_000_000_000_000", "on_behalf_of": "'$CONTRACT_NAME'"}' --accountId $CONTRACT_NAME --deposit 0.1
+near call $ID add_sale '{"token_contract_id": "'$CONTRACT_NAME'", "token_id": "0", "price": "1000000000000000000", "on_behalf_of": "'$CONTRACT_NAME'"}' --accountId $CONTRACT_NAME --deposit 0.1
 ```
 
 ### 4 Approve marketplace to transfer your token
 ```sh
 near call $CONTRACT_NAME nft_approve \
   '{ "token_id": "0", "account_id": "'$ID'" }' \
-  --accountId $CONTRACT_NAME --depositYocto 1
+  --accountId $CONTRACT_NAME --deposit 1
 ```
 
 ### 5 Purchase NFT
